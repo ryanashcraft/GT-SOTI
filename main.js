@@ -23,7 +23,7 @@ async.map(transcriptFiles, d3.json, function(error, data) {
     updateCounts();
 });
 
-$("input").bind("keyup", function(e) {
+function onInputChange(e) {
   var phrase = $(this).val().split(" ")[0];
 
   $("span#phrase").text(phrase);
@@ -33,7 +33,9 @@ $("input").bind("keyup", function(e) {
   });
 
   updateCounts();
-});
+}
+
+$("input").bind("keyup", _.debounce(onInputChange, 300));
 
 function updateCounts() {
   var addresses = d3.selectAll(".address");
