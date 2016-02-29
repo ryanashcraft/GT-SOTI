@@ -29,7 +29,7 @@ function onInputChange(e) {
   $("span#phrase").text(phrase);
 
   d3.selectAll(".word").classed("selected", function(d, i) {
-    return d["word"].toLowerCase() == phrase.toLowerCase();
+    return phrase && d["word"].toLowerCase().indexOf(phrase.toLowerCase()) !== -1;
   });
 
   updateCounts();
