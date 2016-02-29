@@ -37,9 +37,5 @@ svg .axis path {
 }
 
 .word {
-  fill: #ddd;
-}
-
-.word.selected {
   fill: #f00;
 }
